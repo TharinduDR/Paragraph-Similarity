@@ -40,13 +40,13 @@ class Doc2VecSimilarityModel(SimilarityModel):
         for memory_paragraph in  memory_texts:
             similarity_list.append(self.inference(input_text, memory_paragraph))
 
-        arr = np.array([1, 3, 2, 4, 5])
+        arr = np.array(similarity_list)
         filtered_arr = arr.argsort()[-n:][::-1]
 
-        for index in filtered_arr.to_list():
+        for index in filtered_arr.tolist():
             complete_result_list.append(Result(memory_texts[index].text, similarity_list[index]))
 
-        return similarity_list
+        return complete_result_list
 
 
 
