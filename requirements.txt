@@ -1,2 +1,4 @@
 smart-open==4.0.0
 gensim==3.8.3
+sentence-transformers==1.2.0
+tqdm

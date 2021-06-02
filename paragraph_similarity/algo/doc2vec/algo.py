@@ -34,17 +34,17 @@ class Doc2VecSimilarityModel(SimilarityModel):
         return spatial.distance.cosine(self.model.infer_vector(text_1.words),
                                        self.model.infer_vector(text_2.words))
 
-    def calculate_most_similar(self, input_text: Paragraph, memory_texts: list, n: int):
+    def calculate_most_similar(self, input_text: Paragraph, memory_paragraphs: list, n: int):
         similarity_list = []
         complete_result_list = []
-        for memory_paragraph in  memory_texts:
+        for memory_paragraph in  memory_paragraphs:
             similarity_list.append(self.inference(input_text, memory_paragraph))
 
         arr = np.array(similarity_list)
         filtered_arr = arr.argsort()[:n]
 
         for index in filtered_arr.tolist():
-            complete_result_list.append(Result(memory_texts[index].text, similarity_list[index]))
+            complete_result_list.append(Result(memory_paragraphs[index].text, similarity_list[index]))
 
         return complete_result_list
 

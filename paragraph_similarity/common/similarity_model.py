@@ -7,7 +7,7 @@ class SimilarityModel:
     __metaclass__ = abc.ABCMeta
 
     @abc.abstractmethod
-    def calculate_most_similar(self, input_text: Paragraph, memory_texts: list, n: int):
+    def calculate_most_similar(self, input_text: Paragraph, memory_paragraphs: list, n: int):
         """Method documentation"""
         return
 
