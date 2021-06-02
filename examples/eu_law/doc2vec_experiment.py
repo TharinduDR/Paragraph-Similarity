@@ -1,10 +1,12 @@
 import json
+import warnings
 
 from paragraph_similarity.algo.doc2vec.algo import Doc2VecSimilarityModel
 import logging
 
 from paragraph_similarity.common.paragraph import Paragraph
 
+warnings.simplefilter(action='ignore', category=FutureWarning)
 logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
 doc2vec_model = Doc2VecSimilarityModel(vector_size=50, min_count=2, epochs=40)

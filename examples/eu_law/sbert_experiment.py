@@ -2,10 +2,13 @@ import json
 
 from paragraph_similarity.algo.doc2vec.algo import Doc2VecSimilarityModel
 import logging
+import warnings
+
 
 from paragraph_similarity.algo.sbert.algo import SBERTSimilarityModel
 from paragraph_similarity.common.paragraph import Paragraph
 
+warnings.simplefilter(action='ignore', category=FutureWarning)
 logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
 sbert_model = SBERTSimilarityModel()
